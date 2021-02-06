@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
 
 });
 
-export default function DailyTask (props) {
+export default function WeeklyTracker (props) {
     return (
         <View></View>
     )
