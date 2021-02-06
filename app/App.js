@@ -1,12 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import ProgressTracker from './components/ProgressTracker';
+import Friends from './components/Friends';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <ProgressTracker initals={'SZ'} name={'Simon'} progress={0.5}/>
+      <Friends friends={[
+        {progress: 0.1, initials: 'AP', name: 'Apple'},
+        {progress: 0.7, initials: 'LH', name: 'Lemon'},
+        {progress: 0.5, initials: 'BN', name: 'Blueberry'},
+        ]}
+      />
     </View>
   );
 }

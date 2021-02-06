@@ -9,28 +9,28 @@ import {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'flex-start',
+        alignItems: 'center',
         width: '100%',
+        marginLeft: 10
     },
     progressBar: {
-        width: 100,
+        width: 200,
         marginTop: 35,
         margin: 5
     },
     percentage: {
         width: 50,
         marginTop: 25,
+        marginLeft: 5
     },
     avatar: {
         width: 30,
-        marginTop: 25,
-        margin: 5
+        marginTop: 35,
+        margin: 10,
     },
     name: {
-        width: 50,
+        width: 80,
         marginTop: 25
 
     }
@@ -50,7 +50,7 @@ export default function ProgressTracker (props) {
             <Avatar.Text
                 style={styles.avatar}
                 size={24}
-                label={props.initals}
+                label={props.initials}
             />
 
             <Text style={styles.name}>
