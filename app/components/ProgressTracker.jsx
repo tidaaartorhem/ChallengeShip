@@ -15,9 +15,11 @@ const styles = StyleSheet.create({
         marginLeft: 10
     },
     progressBar: {
-        width: 200,
-        marginTop: 35,
-        margin: 5
+        width: 150,
+        marginTop: 30,
+        margin: 5,
+        height: 20,
+        borderRadius: 20,
     },
     percentage: {
         width: 50,
@@ -26,8 +28,11 @@ const styles = StyleSheet.create({
     },
     avatar: {
         width: 30,
+        height: 30,
         marginTop: 35,
         margin: 10,
+        backgroundColor: Colors.grey100,
+        borderRadius: 20,
     },
     name: {
         width: 80,

@@ -32,6 +32,7 @@ export default function Friends (props) {
                                 progress={item.progress}
                                 initials={item.initials}
                                 name={item.name}
+                                key={index}
                             />     
                         )
                     }) : null

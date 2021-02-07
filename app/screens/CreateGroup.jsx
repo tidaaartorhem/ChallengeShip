@@ -10,32 +10,30 @@ const CreateGroup = props => {
 
 
 
-return(
-<View>
-<Text style={{ fontSize:'20pt', fontWeight:'bold', padding:'20px' }}>Create A Group</Text>
+  return(
+  <View>
+    <Text style={{ fontSize:'20pt', fontWeight:'bold', padding:'20px' }}>Create A Group</Text>
 
-<TextInput
+    <TextInput
       style={{ height: 40, borderColor: 'gray', borderWidth: 1, margin:'20px' }}
       onChangeText={name => onChangeName(name)}
       value={name}
     />
 
     {/* onChangeTask((task) => [...task, newvalue]) */}
-<View  style={{ flexDirection:'row'}}>
-<TextInput
-      style={{ height: 40, borderColor: 'gray', borderWidth: 1, margin:'20px'  }}
-      onChangeText={temp => onChangetemp(temp)}
-      value={temp}
-    />
-    <Button title='add'       style={{ height:  '10px' }}  onPress={() => onChangeTask(...task,temp)} >
-   
-      </Button></View>
-     {task}                   
-
-</View>
-
-); 
-
+    <View  style={{ flexDirection:'row'}}>
+      <TextInput
+          style={{ height: 40, borderColor: 'gray', borderWidth: 1, margin:'20px'  }}
+          onChangeText={temp => onChangetemp(temp)}
+          value={temp}
+        />
+        <Button title='add' style={{ height:  '10px' }} onPress={() => onChangeTask(...task,temp)} >
+      
+        </Button>
+    </View>
+        {task}                   
+  </View>
+  ); 
 };
 
 export default CreateGroup;

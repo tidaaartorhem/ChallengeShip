@@ -16,10 +16,6 @@ const LoginScreen = props => {
         for (var i = 0; i < 5; i++)
           text += possible.charAt(Math.floor(Math.random() * possible.length));
         changeCode(text);
-
-            db.ref('users/' + code).set({
-              Name:'Check'
-            });
           
      }
 

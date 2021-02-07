@@ -12,4 +12,4 @@ import Firebase from "firebase";
     };
 
     const app = Firebase.initializeApp(FirebaseConfig);
-export const db = app.database();
+export const db = app.firestore();
