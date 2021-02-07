@@ -1,9 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+
+import Friends from './components/Friends';
+
 import * as firebase from 'firebase'
 import fire from 'fire'
 export default class App extends React.Component() {
+
 
   constructor(props){
     super(props);
@@ -16,8 +20,12 @@ export default class App extends React.Component() {
 render(){
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Friends friends={[
+        {progress: 0.1, initials: 'AP', name: 'Apple'},
+        {progress: 0.7, initials: 'LH', name: 'Lemon'},
+        {progress: 0.5, initials: 'BN', name: 'Blueberry'},
+        ]}
+      />
     </View>
   );
 }
