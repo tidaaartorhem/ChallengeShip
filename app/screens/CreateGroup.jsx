@@ -13,10 +13,13 @@ const CreateGroup = props => {
   const addTask = (task) => {
     db.collection('users').doc('1PRA4').get().then(doc => {
       var oldtasks = doc.data()["Victor"]["Tasks"];
+      var oldProgress = doc.data()["Victor"]["Progress"];
       console.log(oldtasks);
       oldtasks.push(task);
+      oldProgress[task] = [false, false, false, false, false, false, false];
       onChangeTasks(oldtasks)
-      doc.ref.update({"Victor.Tasks": oldtasks})
+      doc.ref.update({"Victor.Tasks": oldtasks, "Victor.Progress": oldProgress})
+      doc.ref.update({})
     })
   }
   var showTasks = tasks.map((task, index) => (<Text key={index}>{task}</Text>))
