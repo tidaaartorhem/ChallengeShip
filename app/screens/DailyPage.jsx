@@ -5,8 +5,14 @@ import {
     Text,
     View
 } from 'react-native';
-import { List, Checkbox, Colors } from 'react-native-paper';
+import { List, Checkbox, Colors, Avatar } from 'react-native-paper';
 import ProgressTracker from '../components/ProgressTracker';
+
+const theme = {
+    colors: {
+      primary: '#085582',
+    },
+};
 
 const styles = StyleSheet.create({
     container: {
@@ -21,10 +27,23 @@ const styles = StyleSheet.create({
         height: 50, 
     }, 
     title: {
+        flexDirection: 'column', 
         fontSize: 36,
         padding: 20,
         paddingBottom: 0,
     },
+    avatar: {
+        alignSelf: 'flex-end',
+        width: 50,
+        height: 50,
+        backgroundColor: Colors.grey100,
+        borderRadius: 50,
+    },
+    top: {
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+        
+    }
 });
 
 export default function DailyPage (props) {
@@ -61,13 +80,21 @@ export default function DailyPage (props) {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>{props.title}</Text>
+            <View style={styles.top}>
+                <Text style={styles.title}>{props.title}</Text>
+                <Avatar.Text
+                    style={styles.avatar}
+                    size={45}
+                    label={props.initials}
+                />
+            </View>
             <List.Section>
                 <List.Accordion 
+                    theme={theme}
                     title="Today's Tasks"
                     expanded={tasksExpanded}
                     onPress={handleTaskAccordion}
-                    description="View your tasks for the day."
+                    description="View your tasks for the day"
                 >
                     {  tasks ? tasks.map((item, index) => {
                             return (
@@ -86,6 +113,7 @@ export default function DailyPage (props) {
             </List.Section>
             <List.Section>
                 <List.Accordion
+                    theme={theme}
                     title="Friends"
                     expanded={friendsExpanded}
                     onPress={handleFriendsAccordion}

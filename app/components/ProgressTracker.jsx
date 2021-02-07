@@ -23,13 +23,13 @@ const styles = StyleSheet.create({
     },
     percentage: {
         width: 50,
-        marginTop: 25,
+        marginTop: 20,
         marginLeft: 5
     },
     avatar: {
-        width: 30,
-        height: 30,
-        marginTop: 35,
+        width: 35,
+        height: 35,
+        marginTop: 30,
         margin: 10,
         backgroundColor: Colors.grey100,
         borderRadius: 20,

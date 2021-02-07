@@ -6,7 +6,7 @@ import DailyPage from './screens/DailyPage';
 export default function App() {
   return (
     <View style={styles.container}>
-      <DailyPage title="Fitness"/>
+      <DailyPage title="Fitness" initials='AB'/>
     </View>
   );
 }
