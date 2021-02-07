@@ -12,7 +12,7 @@ const Home = props => {
        
       <View>
           <CreateGroup/>
-          Hello
+          <Text>Hello</Text>
       </View>
     );
 
