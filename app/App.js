@@ -1,4 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
+import {db} from './fire';
 import React, { useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import DailyPage from './screens/DailyPage';
