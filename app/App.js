@@ -4,28 +4,21 @@ import { StyleSheet, Text, View } from 'react-native';
 import {db} from './fire';
 import LoginScreen from './screens/login';
 import Home from './screens/Home'
-import { NavigationContainer } from '@react-navigation/native';
+
 import Friends from './components/Friends';
 
 
 
 
 
-export default class App extends React.Component() {
+export default function App() {
 
-
-  constructor(props){
-    super(props);
-
-    //Initialize Firebase....
-    // firebase.initializeApp(fire.FirebaseConfig);
-
-}
     
-render(){
+
   return (
     <View style={styles.container}>
       <Home/>
+      <LoginScreen/>
       <Friends friends={[
         {progress: 0.1, initials: 'AP', name: 'Apple'},
         {progress: 0.7, initials: 'LH', name: 'Lemon'},
@@ -35,7 +28,7 @@ render(){
     </View>
   );
 }
-}
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -44,4 +37,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   }, 
 }); 
+
 
