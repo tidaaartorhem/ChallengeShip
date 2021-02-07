@@ -85,7 +85,7 @@ export default function DailyPage (props) {
             progress[name][curDay] = newStatus;
             console.log(progress)
 
-            doc.ref.update({"Progress": progress})
+            doc.ref.update({"Victor.Progress": progress})
         })
         console.log(tasks);
     }

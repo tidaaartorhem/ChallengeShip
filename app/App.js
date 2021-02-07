@@ -19,7 +19,7 @@ export default function App() {
         <Drawer.Screen name="Home" component={Home} />
         <Drawer.Screen name="Create" component={CreateGroup} />
         <Drawer.Screen name="Daily" component={DailyPage} />
-        <Drawer.Screen name="WeeklyTracker" component={WeeklyTracker} />
+        <Drawer.Screen name="Weekly Tracker" component={WeeklyTracker} />
       </Drawer.Navigator>
   </NavigationContainer>
   );
