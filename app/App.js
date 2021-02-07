@@ -1,9 +1,23 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+
 import Friends from './components/Friends';
 
-export default function App() {
+import * as firebase from 'firebase'
+import fire from 'fire'
+export default class App extends React.Component() {
+
+
+  constructor(props){
+    super(props);
+
+    //Initialize Firebase....
+    if(!firebase.apps.length){firebase.initializeApp(fire.FirebaseConfig);}
+
+}
+    ;
+render(){
   return (
     <View style={styles.container}>
       <Friends friends={[
@@ -15,12 +29,13 @@ export default function App() {
     </View>
   );
 }
-
+}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-});
+  }, 
+}); 
+
