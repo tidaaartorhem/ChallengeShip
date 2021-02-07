@@ -11,8 +11,7 @@ const Home = props => {
     return(
        
       <View>
-          <CreateGroup/>
-          Hello
+          <Text>Hello</Text>
       </View>
     );
 

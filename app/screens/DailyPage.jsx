@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import { List, Checkbox, Colors } from 'react-native-paper';
 import ProgressTracker from '../components/ProgressTracker';
+import { db } from '../fire'
 
 const styles = StyleSheet.create({
     container: {
@@ -28,18 +29,39 @@ const styles = StyleSheet.create({
 });
 
 export default function DailyPage (props) {
-    const [tasks, setTasks] = React.useState([
-        { name: '20 Crunches', done: false }, 
-        { name: '20 Squats', done: true },
-        { name: '5 KM Run', done: false },
-      ]);
+
+    const [tasks, setTasks] = React.useState([]);
+    // const getTasks = async () =>{
+        if (!tasks.length) {
+        db.collection('users').doc('1PRA4').get().then(doc => {
+            var gettasks = doc.data()["Victor"]["Tasks"];
+            var progress = doc.data()["Victor"]["Progress"];
+            var curDay = 0;
+            setTasks(gettasks.map(task=>{return{name:task, done:progress[task][curDay]}}))
+            console.log(gettasks.map(task=>{return{name:task, done:progress[task][curDay]}}));
+        })
+        // }
+    }
+    // useEffect(() => {if (!tasks) {
+    //     getTasks();
+    // }}, [])
 
     const friends = [
-        {progress: 0.8, initials: 'ME', name: 'ME'},
+        {progress: 0, initials: 'ME', name: 'ME'},
         {progress: 0.1, initials: 'AP', name: 'Simon'},
         {progress: 0.7, initials: 'LH', name: 'Victor'},
         {progress: 0.5, initials: 'BN', name: 'Aadit'},
     ]
+
+    const updateFriends = () => {
+        var count = 0
+        tasks.forEach((task) => {
+            if (task.done == true) count++;
+        })
+        friends[0]["progress"] = count / tasks.length / 7;
+    }
+    updateFriends();
+    
 
     const [tasksExpanded, setTasksExpanded] = React.useState(true);
     const [friendsExpanded, setFriendsExpanded] = React.useState(true);
@@ -52,10 +74,19 @@ export default function DailyPage (props) {
         for (var i = 0; i < newTasks.length; i++) {
             if (newTasks[i].name == name) {
                 newTasks[i].done = !newTasks[i].done;
+                var newStatus = newTasks[i].done
                 //tasks[i].done = !tasks[i].done;
             }
         }
         setTasks(newTasks);
+        db.collection('users').doc('1PRA4').get().then(doc => {
+            var progress = doc.data()["Victor"]["Progress"];
+            var curDay = 0;
+            progress[name][curDay] = newStatus;
+            console.log(progress)
+
+            doc.ref.update({"Victor.Progress": progress})
+        })
         console.log(tasks);
     }
 
