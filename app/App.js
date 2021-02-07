@@ -3,11 +3,18 @@ import React, { useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import DailyPage from './screens/DailyPage';
 
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
+
+const 
+
 export default function App() {
   return (
-    <View style={styles.container}>
-      <DailyPage title="Fitness"/>
-    </View>
+    <NavigationContainer>
+      <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Screen name="Home" component={DailyPage} />
+      </Drawer.Navigator>
+  </NavigationContainer>
   );
 }
 
