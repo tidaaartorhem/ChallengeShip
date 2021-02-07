@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Alert, Modal, StyleSheet, Text, TouchableHighlight, Button, TextInput } from 'react-native';
-import CreateGroup from './CreateGroup.js'
+import CreateGroup from './CreateGroup.jsx'
 import LoginScreen from './login';
 
 

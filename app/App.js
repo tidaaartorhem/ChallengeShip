@@ -2,8 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import {db} from './fire';
-import LoginScreen from './screens/login';
-import Home from './screens/Home'
+import LoginScreen from './screens/login.jsx';
+import Home from './screens/Home.jsx'
 
 import Friends from './components/Friends';
 

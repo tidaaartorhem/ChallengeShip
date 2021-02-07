@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { FlatList, View, Alert, Modal, StyleSheet,Image, Text,TouchableOpacity, TouchableHighlight, Button, TextInput } from 'react-native';
+import { FlatList, View, Alert, Modal, StyleSheet,Image, Text,TouchableOpacity, TouchableHighlight, Button } from 'react-native';
 import {db} from '../fire'
+import { Avatar, Card, Title, Paragraph, TextInput } from 'react-native-paper';
+
 import add from '../assets/add.png'
 
 const CreateGroup = props => {
@@ -10,20 +12,7 @@ const CreateGroup = props => {
     const [penalty, onChangePenalty] = React.useState([]);
     const [penaltytemp, onChangepenaltytemp] = React.useState('');
 
-// const writeUserData = (penalty, tasks) => {
-//     var path = 'users/1PRA4/Friends/Victor'
 
-//     db.ref(path + '/Penalty').once('value', function(snapshot) {
-//         snapshot.forEach(function(childSnapshot) {
-//           console.log(childSnapshot.val());
-//           penalty.push(childSnapshot.val());
-//         });
-//     });
-
-//     console.log(penalty);
-
-//     update(penalty, tasks);
-// }
 
 const writeUserData = (penalty, tasks, progress) => {
     const newVictor = {'Penalty': penalty, 'Tasks': tasks, 'Progress': progress}
@@ -34,22 +23,6 @@ const writeUserData = (penalty, tasks, progress) => {
 
 }
 
-// function writeUserData(penalty, task) {
-//     // A post entry.
-//     var postData = {
-//       Penalty: penalty,
-//       Task: task
-//     };
-  
-//     // Get a key for a new Post.
-//     var newPostKey = db.ref().child('users').push().key;
-  
-//     // Write the new post's data simultaneously in the posts list and the user's post list.
-//     var updates = {};
-//     updates['/1PRA4/Friends/Victor/Penalty' + newPostKey] = postData;
-  
-//     return db.ref().update(updates);
-//   }
 
 
 
@@ -78,6 +51,7 @@ return(
             onChangeTask([...task, temp])
         }} 
     />
+    
     <View style={styles.container}>
         <FlatList
             data={task}
@@ -97,7 +71,6 @@ return(
         title='add'
         style={{ height:  '10px' }}  
         onPress={() => {
-            console.log(penalty)
             onChangePenalty([...penalty, penaltytemp])
         }}
     />
@@ -115,20 +88,7 @@ return(
         style={{height: '10px'}}
         onPress={() => {
             console.log("Confirm")
-            // var newPenalty = []
-            // var newTask = []
-            // var newProgress = []
-
-            // db.collection('users').onSnapshot(snapshot => {
-            //     snapshot.forEach(doc => {
-            //         newPenalty = doc.data()["Victor"]["Penalty"]
-            //         newTask = doc.data()["Victor"]["Tasks"]
-            //         newProgress = doc.data()["Victor"]["Progress"]
-            //     })
-            // })
-
-            // newPenalty.push.apply(newPenalty, penalty)
-
+          
             writeUserData(penalty, task, [])
         }}
     />          
